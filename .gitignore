@@ -1,0 +1,140 @@
+# ==========================================
+# 🌟 MULTI-FOLDER / MONOREPO GLOBAL GITIGNORE
+# Works perfectly for deep subfolders
+# Includes: Node.js, Python, React, Next.js, Editors & OS
+# ==========================================
+
+# ------------------------------------------
+# 📦 Node.js, Express, React, & Next.js (All Folders)
+# ------------------------------------------
+**/node_modules/
+**/.next/
+**/out/
+**/build/
+**/dist/
+**/.cache/
+**/.parcel-cache/
+**/.turbo/
+
+# Debug logs anywhere
+**/npm-debug.log*
+**/yarn-errors.log*
+**/yarn-debug.log*
+**/.pnpm-debug.log*
+**/lerna-debug.log*
+
+# TypeScript
+*.tsbuildinfo
+
+# ------------------------------------------
+# 🐍 Python (All Folders)
+# ------------------------------------------
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Python Virtual Environments anywhere
+**/venv/
+**/.venv/
+**/env/
+**/.env/
+**/ENV/
+**/env.bak/
+**/venv.bak/
+**/pip-selfcheck.json
+
+# Python Distribution / Packaging
+.Python
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Tools
+.spyderproject
+.pyre/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.cronodep/
+.ruff_cache/
+
+# ------------------------------------------
+# 🔑 Security & Environment Variables (Crucial for subfolders)
+# ------------------------------------------
+**/.env
+**/.env.local
+**/.env.development.local
+**/.env.test.local
+**/.env.production.local
+**/*.env
+**/*.env.*
+**/*.pem
+**/*.key
+**/*.cert
+**/*.secret
+**/credentials.json
+
+# ------------------------------------------
+# 💻 Operating Systems
+# ------------------------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.lnk
+*.cab
+*.msi
+*.msm
+*.msp
+
+*~
+.fuse_hidden*
+.directory
+.trash
+.nfs*
+
+# ------------------------------------------
+# 📝 Code Editors & IDEs
+# ------------------------------------------
+**/.vscode/
+!**/.vscode/extensions.json
+!**/.vscode/launch.json
+!**/.vscode/settings.json
+*.code-workspace
+
+**/.idea/
+*.iws
+*.sublime-project
+*.sublime-workspace
+
+# ------------------------------------------
+# 📊 Logs & Databases
+# ------------------------------------------
+**/logs/
+**/*.log
+**/*.sqlite3
+**/*.sqlite
+**/*.db

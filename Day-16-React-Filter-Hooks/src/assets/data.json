@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "title": "Wireless Noise-Canceling Headphones",
+    "category": "Electronics",
+    "price": 199.99,
+    "inStock": true
+  },
+  {
+    "id": 2,
+    "title": "Ergonomic Mesh Office Chair",
+    "category": "Furniture",
+    "price": 249.50,
+    "inStock": true
+  },
+  {
+    "id": 3,
+    "title": "Stainless Steel Water Bottle",
+    "category": "Home & Kitchen",
+    "price": 25.00,
+    "inStock": false
+  },
+  {
+    "id": 4,
+    "title": "Mechanical Gaming Keyboard",
+    "category": "Electronics",
+    "price": 119.99,
+    "inStock": true
+  },
+  {
+    "id": 5,
+    "title": "Adjustable Standing Desk",
+    "category": "Furniture",
+    "price": 450.00,
+    "inStock": false
+  },
+  {
+    "id": 6,
+    "title": "Ceramic Pour-Over Coffee Maker",
+    "category": "Home & Kitchen",
+    "price": 34.99,
+    "inStock": true
+  },
+  {
+    "id": 7,
+    "title": "Ultra-Wide Gaming Monitor",
+    "category": "Electronics",
+    "price": 599.99,
+    "inStock": true
+  },
+  {
+    "id": 8,
+    "title": "Cast Iron Skillet",
+    "category": "Home & Kitchen",
+    "price": 42.50,
+    "inStock": true
+  },
+  {
+    "id": 9,
+    "title": "Bluetooth Portable Speaker",
+    "category": "Electronics",
+    "price": 79.99,
+    "inStock": true
+  },
+  {
+    "id": 10,
+    "title": "Memory Foam Office Chair",
+    "category": "Furniture",
+    "price": 189.99,
+    "inStock": false
+  },
+  {
+    "id": 11,
+    "title": "Non-Stick Cookware Set",
+    "category": "Home & Kitchen",
+    "price": 89.50,
+    "inStock": true
+  },
+  {
+    "id": 12,
+    "title": "4K Smart LED Television",
+    "category": "Electronics",
+    "price": 749.99,
+    "inStock": true
+  },
+  {
+    "id": 13,
+    "title": "Wooden Bookshelf Organizer",
+    "category": "Furniture",
+    "price": 129.99,
+    "inStock": true
+  },
+  {
+    "id": 14,
+    "title": "Electric Coffee Grinder",
+    "category": "Home & Kitchen",
+    "price": 64.99,
+    "inStock": false
+  },
+  {
+    "id": 15,
+    "title": "Wireless Gaming Mouse",
+    "category": "Electronics",
+    "price": 69.99,
+    "inStock": true
+  },
+  {
+    "id": 16,
+    "title": "Modern Wooden Study Table",
+    "category": "Furniture",
+    "price": 299.00,
+    "inStock": true
+  },
+  {
+    "id": 17,
+    "title": "Digital Kitchen Food Scale",
+    "category": "Home & Kitchen",
+    "price": 22.99,
+    "inStock": true
+  },
+  {
+    "id": 18,
+    "title": "USB-C Fast Charging Hub",
+    "category": "Electronics",
+    "price": 49.99,
+    "inStock": false
+  },
+  {
+    "id": 19,
+    "title": "Reclining Leather Lounge Chair",
+    "category": "Furniture",
+    "price": 399.99,
+    "inStock": true
+  },
+  {
+    "id": 20,
+    "title": "Programmable Electric Kettle",
+    "category": "Home & Kitchen",
+    "price": 54.99,
+    "inStock": true
+  }
+]

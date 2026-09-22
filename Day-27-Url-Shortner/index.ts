@@ -1,87 +1,77 @@
+export class UrlRepository {
+  private map: Map<string, string>;
 
-//  save, check, return long url
-export class UrlRepository{
-    private map : Map<string, string>;
+  constructor() {
+    this.map = new Map<string, string>();
+  }
 
-    constructor(){
-        this.map = new Map<string, string>()
+  public save(shortCode: string, longUrl: string): void {
+    if (this.map.has(shortCode)) {
+      throw new Error(`Duplicate key error: ${shortCode} already exists.`);
     }
+    this.map.set(shortCode, longUrl);
+  }
 
-    public save(shortCode: string, longCode: string){
-        if(this.map.has(shortCode)){
-            console.log("This url code already Exists...❌")
-            return
-        }
+  public check(shortCode: string): boolean {
+    return this.map.has(shortCode);
+  }
 
-        this.map.set(shortCode, longCode)
-    }
-
-    public check(shortCode: string){
-        if(this.map.has(shortCode)){
-            console.log("We found your original url in our database...✅✅");
-            return true;
-        }
-        return false;
-    }
-
-    public getLongUrl(shortCode: string){
-        if(this.map.has(shortCode)){
-            
-            return this.map.get(shortCode)
-        }
-        return "Not found"
-    }
-
+  public getLongUrl(shortCode: string): string | null {
+    return this.map.get(shortCode) ?? null;
+  }
 }
 
-// --------------------------------------
+export class CodeGenerator {
+  private static readonly CHARACTERS =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-export class CodeGenerator{
-    private random = "eqwaHtmTOGlCpW4j3rqU17zSKB8OSvpwfA9mWc8m2NS18PSPPvTFiWhyP0H7lSF9j0gpAFd6DHhlYyhk"
+  public generateShortUrl(length: number = 6): string {
+    let result = "";
+    const charLength = CodeGenerator.CHARACTERS.length;
 
-    public generateShortUrl(length: number){
-        let result = "";
-
-        for(let i=0; i<length; i++){
-            result += this.random.charAt(Math.random() * this.random.length)
-        }
-
-        return result;
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * charLength);
+      result += CodeGenerator.CHARACTERS.charAt(randomIndex);
     }
+
+    return result;
+  }
 }
 
-// ----------------------------------------------------------
+export class UrlShortenerService {
+  private repo: UrlRepository;
+  private generator: CodeGenerator;
 
-export class UrlShortenerService{
-    private repo : UrlRepository
-    private generator: CodeGenerator
+  constructor(repo: UrlRepository, generator: CodeGenerator) {
+    this.repo = repo;
+    this.generator = generator;
+  }
 
-    constructor(repo: UrlRepository, generator: CodeGenerator){
-        this.repo = repo
-        this.generator = generator
+  public shortenUrl(longUrl: string, codeLength: number = 6): string {
+    let shortCode = this.generator.generateShortUrl(codeLength);
+    let retries = 0;
+    const MAX_RETRIES = 10;
+
+    // Correct Collision Handling: Regenerate candidate code
+    while (this.repo.check(shortCode)) {
+      shortCode = this.generator.generateShortUrl(codeLength);
+      retries++;
+      if (retries >= MAX_RETRIES) {
+        throw new Error("System high load: Failed to generate a unique short code.");
+      }
     }
 
-    public shortenUrl(longCode: string){
-        let random = "0qkbTVIhPOZdnhyRJKBYXqNKxHYe0d0chKiM934U"
-        let short = this.generator.generateShortUrl(8)
+    this.repo.save(shortCode, longUrl);
+    return shortCode;
+  }
 
-        while(this.repo.check(short)){
-            short += random.charAt(Math.random() * random.length)
-        }
-
-        this.repo.save(short, longCode)
-
-        return short
+  public getLongUrl(shortCode: string): string {
+    const longUrl = this.repo.getLongUrl(shortCode);
+    if (!longUrl) {
+      throw new Error(`URL for short code '${shortCode}' was not found.`);
     }
-
-    public getLongUrl(shortCode: string){
-
-        if(this.repo.check(shortCode)){
-            let long = this.repo.getLongUrl(shortCode)
-            return long
-        }
-        return "No long url Found"
-    }
+    return longUrl;
+  }
 }
 
 const repo = new UrlRepository();

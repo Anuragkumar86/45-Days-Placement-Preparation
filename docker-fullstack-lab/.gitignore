@@ -1,0 +1,16 @@
+# Local configuration and secrets
+.env
+secrets/*.txt
+!secrets/README.md
+
+# Node.js dependencies and generated output
+**/node_modules/
+**/.next/
+**/dist/
+**/coverage/
+**/npm-debug.log*
+
+# Local editor / OS files
+.DS_Store
+Thumbs.db
+.vscode/
